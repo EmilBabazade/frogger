@@ -1,9 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfq2iqhuccltx"]
+[gd_scene load_steps=29 format=3 uid="uid://dfq2iqhuccltx"]
 
 [ext_resource type="Script" uid="uid://7pgcmberepa8" path="res://scenes/Game.cs" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://doghmovcgeltw" path="res://graphics/map.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://853b3ccqh45g" path="res://scenes/Objects/tree.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dghd7rii024ea" path="res://scenes/PlayerScene/player.tscn" id="2_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://c5iy3tuxd0vaw" path="res://graphics/objects/barrier.png" id="5_iywne"]
+[ext_resource type="Texture2D" uid="uid://b778fphjcav0" path="res://graphics/objects/light.png" id="6_e1j6l"]
+[ext_resource type="Texture2D" uid="uid://d1h0ksxlju0ou" path="res://graphics/objects/house1.png" id="7_pl11u"]
+[ext_resource type="Texture2D" uid="uid://dxciltwc3sgll" path="res://graphics/objects/house2.png" id="8_bhx41"]
+[ext_resource type="Texture2D" uid="uid://73gfa8tjrcik" path="res://graphics/objects/house3.png" id="9_qnb83"]
+[ext_resource type="Texture2D" uid="uid://b8fq8sgkmu4dx" path="res://graphics/objects/green car.png" id="10_sww3w"]
+[ext_resource type="Texture2D" uid="uid://y78osdw0bolc" path="res://graphics/objects/box1.png" id="11_suyxu"]
+[ext_resource type="Texture2D" uid="uid://cv8cli0ov53f1" path="res://graphics/objects/box2.png" id="12_sgl2t"]
+[ext_resource type="Texture2D" uid="uid://cuqeolw7yvunc" path="res://graphics/objects/box3.png" id="13_qouja"]
+[ext_resource type="Texture2D" uid="uid://beho7qo80tneo" path="res://graphics/objects/bin.png" id="14_wljb1"]
+[ext_resource type="Texture2D" uid="uid://d0so81ys3820n" path="res://graphics/objects/tree1.png" id="15_v2yb1"]
+[ext_resource type="Texture2D" uid="uid://y3ndpd5bhsi3" path="res://graphics/objects/tree2.png" id="16_js0lu"]
+[ext_resource type="Texture2D" uid="uid://boj6kq1t4mduj" path="res://graphics/objects/tree potted.png" id="17_gxtfn"]
+[ext_resource type="Texture2D" uid="uid://bkgrir378horu" path="res://graphics/player/player_simple.png" id="18_twgab"]
+[ext_resource type="Texture2D" uid="uid://cgvtilagem3np" path="res://graphics/objects/red car.png" id="19_02fa5"]
+[ext_resource type="Texture2D" uid="uid://58kopy31xbf8" path="res://graphics/objects/taxi.png" id="20_nepv3"]
+[ext_resource type="Texture2D" uid="uid://cfe22lwgaf1k2" path="res://graphics/objects/traffic.png" id="21_7025r"]
+[ext_resource type="Texture2D" uid="uid://b3jchn0artiyt" path="res://graphics/objects/line.png" id="22_m4url"]
+[ext_resource type="Texture2D" uid="uid://cxutqp0hti8vw" path="res://graphics/objects/bench.png" id="23_8ool0"]
+[ext_resource type="Texture2D" uid="uid://oqgtp468wc6x" path="res://graphics/objects/sign.png" id="24_pr1ej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
 size = Vector2(43, 642)
@@ -12,6 +32,9 @@ size = Vector2(43, 642)
 size = Vector2(383, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iywne"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_05nbr"]
+size = Vector2(7, 12)
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("_carSpawnTimer", "_carSpawns", "_area2D")]
 script = ExtResource("1_lbhrr")
@@ -22,17 +45,16 @@ _area2D = NodePath("borders/Area2D")
 [node name="BG" type="Sprite2D" parent="."]
 texture = ExtResource("1_uwrxv")
 
-[node name="Player" parent="." instance=ExtResource("2_yqjtg")]
-_speed = 5000
-
 [node name="Tree" parent="." instance=ExtResource("2_lnu2h")]
 position = Vector2(-60, 215)
 
-[node name="borders" type="Node" parent="."]
+[node name="borders" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="left" type="StaticBody2D" parent="borders"]
 collision_layer = 8
 collision_mask = 2
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="borders/left"]
 position = Vector2(-213.5, 0)
@@ -41,6 +63,7 @@ shape = SubResource("RectangleShape2D_lnu2h")
 [node name="right" type="StaticBody2D" parent="borders"]
 collision_layer = 8
 collision_mask = 2
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="borders/right"]
 position = Vector2(214, 0)
@@ -49,6 +72,7 @@ shape = SubResource("RectangleShape2D_lnu2h")
 [node name="bottom" type="StaticBody2D" parent="borders"]
 collision_layer = 8
 collision_mask = 2
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="borders/bottom"]
 position = Vector2(-0.5, 328.5)
@@ -57,6 +81,7 @@ shape = SubResource("RectangleShape2D_lbhrr")
 [node name="top" type="StaticBody2D" parent="borders"]
 collision_layer = 8
 collision_mask = 2
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="borders/top"]
 position = Vector2(0, -331)
@@ -64,6 +89,7 @@ shape = SubResource("RectangleShape2D_lbhrr")
 
 [node name="Area2D" type="Area2D" parent="borders"]
 collision_mask = 2
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="borders/Area2D"]
 position = Vector2(0, -50)
@@ -77,6 +103,7 @@ wait_time = 0.25
 autostart = true
 
 [node name="CarSpawns" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Marker2D" type="Marker2D" parent="CarSpawns"]
 position = Vector2(205, 163)
@@ -104,3 +131,290 @@ position = Vector2(211, -97)
 
 [node name="Marker2D9" type="Marker2D" parent="CarSpawns"]
 position = Vector2(-209, -118)
+
+[node name="scene" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Objects" type="Node2D" parent="scene"]
+y_sort_enabled = true
+
+[node name="Sprites" type="Node2D" parent="scene/Objects"]
+y_sort_enabled = true
+metadata/_edit_lock_ = true
+
+[node name="Barrier" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(25, 78)
+texture = ExtResource("5_iywne")
+
+[node name="Barrier2" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(24, 20)
+texture = ExtResource("5_iywne")
+
+[node name="Light" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(115, 63)
+texture = ExtResource("6_e1j6l")
+
+[node name="Light2" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-51, 64)
+texture = ExtResource("6_e1j6l")
+
+[node name="Light3" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-85, -83)
+texture = ExtResource("6_e1j6l")
+
+[node name="House1" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-120, -182)
+texture = ExtResource("7_pl11u")
+
+[node name="House2" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(1, -199)
+texture = ExtResource("8_bhx41")
+
+[node name="House3" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(109, -176)
+texture = ExtResource("9_qnb83")
+
+[node name="GreenCar" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-111, 64)
+texture = ExtResource("10_sww3w")
+
+[node name="Box1" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-53, 28)
+texture = ExtResource("11_suyxu")
+
+[node name="Box2" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-66, -170)
+texture = ExtResource("11_suyxu")
+
+[node name="Box3" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-55, -170)
+texture = ExtResource("12_sgl2t")
+
+[node name="Box4" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-64, -180)
+texture = ExtResource("13_qouja")
+
+[node name="Bin" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(46, -150)
+texture = ExtResource("14_wljb1")
+
+[node name="Bin2" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-38, 72)
+texture = ExtResource("14_wljb1")
+
+[node name="Bin3" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(104, 71)
+texture = ExtResource("14_wljb1")
+
+[node name="Bin4" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-83, 223)
+texture = ExtResource("14_wljb1")
+
+[node name="Bin5" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(84, 202)
+texture = ExtResource("14_wljb1")
+
+[node name="Tree1" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-115, -271)
+texture = ExtResource("15_v2yb1")
+
+[node name="Tree2" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-58, -288)
+texture = ExtResource("16_js0lu")
+
+[node name="TreePotted" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(85, -277)
+texture = ExtResource("17_gxtfn")
+
+[node name="Tree3" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(39, -280)
+texture = ExtResource("16_js0lu")
+
+[node name="TreePotted2" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(152, -250)
+texture = ExtResource("17_gxtfn")
+
+[node name="Tree4" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(63, -262)
+texture = ExtResource("15_v2yb1")
+
+[node name="Tree5" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-20, -275)
+texture = ExtResource("16_js0lu")
+
+[node name="TreePotted3" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-150, -270)
+texture = ExtResource("17_gxtfn")
+
+[node name="Tree6" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-86, -264)
+texture = ExtResource("15_v2yb1")
+
+[node name="Tree7" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-111, -250)
+texture = ExtResource("16_js0lu")
+
+[node name="TreePotted4" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-146, -258)
+texture = ExtResource("17_gxtfn")
+
+[node name="Tree8" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(18, -274)
+texture = ExtResource("16_js0lu")
+
+[node name="TreePotted5" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(123, -243)
+texture = ExtResource("17_gxtfn")
+
+[node name="Tree9" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(131, -253)
+texture = ExtResource("15_v2yb1")
+
+[node name="Tree10" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(118, -274)
+texture = ExtResource("15_v2yb1")
+
+[node name="Tree11" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(163, -278)
+texture = ExtResource("16_js0lu")
+
+[node name="Light4" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(120, -83)
+texture = ExtResource("6_e1j6l")
+
+[node name="PlayerSimple" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(151, 283)
+texture = ExtResource("18_twgab")
+
+[node name="Box5" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(139, -149)
+texture = ExtResource("11_suyxu")
+
+[node name="Box6" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(78, 58)
+texture = ExtResource("12_sgl2t")
+
+[node name="Box7" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(66, 51)
+texture = ExtResource("13_qouja")
+
+[node name="Box8" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(80, 47)
+texture = ExtResource("12_sgl2t")
+
+[node name="Bin6" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-163, 68)
+texture = ExtResource("14_wljb1")
+
+[node name="Bin7" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-161, 22)
+texture = ExtResource("14_wljb1")
+
+[node name="RedCar" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(175, 63)
+texture = ExtResource("19_02fa5")
+
+[node name="Taxi" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(143, 64)
+texture = ExtResource("20_nepv3")
+
+[node name="Traffic" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(50, 9)
+texture = ExtResource("21_7025r")
+
+[node name="Tree12" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-41, 218)
+texture = ExtResource("15_v2yb1")
+
+[node name="Tree13" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-53, 243)
+texture = ExtResource("16_js0lu")
+
+[node name="TreePotted6" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(32, 276)
+texture = ExtResource("17_gxtfn")
+
+[node name="Tree14" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(104, 237)
+texture = ExtResource("16_js0lu")
+
+[node name="Tree15" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(21, 238)
+texture = ExtResource("15_v2yb1")
+
+[node name="Tree16" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(129, 287)
+texture = ExtResource("16_js0lu")
+
+[node name="TreePotted7" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-48, 292)
+texture = ExtResource("17_gxtfn")
+
+[node name="Tree17" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-20, 263)
+texture = ExtResource("16_js0lu")
+
+[node name="Tree18" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(10, 292)
+texture = ExtResource("15_v2yb1")
+
+[node name="Tree19" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(83, 299)
+texture = ExtResource("16_js0lu")
+
+[node name="TreePotted8" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(156, 239)
+texture = ExtResource("17_gxtfn")
+
+[node name="Tree20" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(156, 283)
+texture = ExtResource("15_v2yb1")
+
+[node name="Tree21" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-154, 226)
+texture = ExtResource("16_js0lu")
+
+[node name="Tree22" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-145, 264)
+texture = ExtResource("15_v2yb1")
+
+[node name="Tree23" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-155, 292)
+texture = ExtResource("16_js0lu")
+
+[node name="Line" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-103, 200)
+texture = ExtResource("22_m4url")
+
+[node name="Bench" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-84, 232)
+texture = ExtResource("23_8ool0")
+
+[node name="Sign" type="Sprite2D" parent="scene/Objects/Sprites"]
+position = Vector2(-10, 60)
+texture = ExtResource("24_pr1ej")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="scene/Objects"]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="scene/Objects/StaticBody2D"]
+polygon = PackedVector2Array(-152, 306, -151, 297, -151, 289, -158, 290, -158, 299, -157, 304)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="scene/Objects/StaticBody2D"]
+polygon = PackedVector2Array(-144, 278, -142, 272, -138, 268, -139, 261, -148, 266, -146, 277)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene/Objects/StaticBody2D"]
+position = Vector2(-154.5, 228)
+shape = SubResource("RectangleShape2D_05nbr")
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="scene/Objects/StaticBody2D"]
+polygon = PackedVector2Array(49, -149, 48, -153, 36, -153, 37, -225, -34, -224, -33, -154, 35, -153, 37, -152, 35, -154, 35, -154, 35, -154, 43, -165, 23, -167, 40, -159, 38, -224, 28, -168)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="scene/Objects/StaticBody2D"]
+polygon = PackedVector2Array(-167, -149, -165, -196, -75, -197, -76, -178, -66, -176, -58, -179, -57, -175, -54, -172, -52, -170, -69, -168, -74, -167, -74, -155, -75, -149, -166, -149)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="scene/Objects/StaticBody2D"]
+polygon = PackedVector2Array(141, -149, 89, -150, 89, -192, 127, -191, 128, -157, 128, -153)
+
+[node name="Player" parent="scene" instance=ExtResource("2_yqjtg")]
+_speed = 5000
