@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dfq2iqhuccltx"]
+[gd_scene load_steps=8 format=3 uid="uid://dfq2iqhuccltx"]
 
+[ext_resource type="Script" uid="uid://7pgcmberepa8" path="res://scenes/Game.cs" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://doghmovcgeltw" path="res://graphics/map.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://853b3ccqh45g" path="res://scenes/Objects/tree.tscn" id="2_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://dghd7rii024ea" path="res://scenes/Player/player.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dghd7rii024ea" path="res://scenes/PlayerScene/player.tscn" id="2_yqjtg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
 size = Vector2(43, 642)
@@ -10,9 +11,15 @@ size = Vector2(43, 642)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
 size = Vector2(383, 19)
 
-[node name="Game" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iywne"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("_carSpawnTimer", "_carSpawns", "_area2D")]
+script = ExtResource("1_lbhrr")
+_carSpawnTimer = NodePath("Timers/CarSpawnTimer")
+_carSpawns = NodePath("CarSpawns")
+_area2D = NodePath("borders/Area2D")
+
+[node name="BG" type="Sprite2D" parent="."]
 texture = ExtResource("1_uwrxv")
 
 [node name="Player" parent="." instance=ExtResource("2_yqjtg")]
@@ -24,25 +31,76 @@ position = Vector2(-60, 215)
 [node name="borders" type="Node" parent="."]
 
 [node name="left" type="StaticBody2D" parent="borders"]
+collision_layer = 8
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="borders/left"]
 position = Vector2(-213.5, 0)
 shape = SubResource("RectangleShape2D_lnu2h")
 
 [node name="right" type="StaticBody2D" parent="borders"]
+collision_layer = 8
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="borders/right"]
 position = Vector2(214, 0)
 shape = SubResource("RectangleShape2D_lnu2h")
 
 [node name="bottom" type="StaticBody2D" parent="borders"]
+collision_layer = 8
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="borders/bottom"]
 position = Vector2(-0.5, 328.5)
 shape = SubResource("RectangleShape2D_lbhrr")
 
 [node name="top" type="StaticBody2D" parent="borders"]
+collision_layer = 8
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="borders/top"]
 position = Vector2(0, -331)
 shape = SubResource("RectangleShape2D_lbhrr")
+
+[node name="Area2D" type="Area2D" parent="borders"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/Area2D"]
+position = Vector2(0, -50)
+scale = Vector2(18.879997, 1)
+shape = SubResource("RectangleShape2D_iywne")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="CarSpawnTimer" type="Timer" parent="Timers"]
+wait_time = 0.25
+autostart = true
+
+[node name="CarSpawns" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="CarSpawns"]
+position = Vector2(205, 163)
+
+[node name="Marker2D2" type="Marker2D" parent="CarSpawns"]
+position = Vector2(205, 138)
+
+[node name="Marker2D3" type="Marker2D" parent="CarSpawns"]
+position = Vector2(204, 91)
+
+[node name="Marker2D4" type="Marker2D" parent="CarSpawns"]
+position = Vector2(-207, 114)
+
+[node name="Marker2D5" type="Marker2D" parent="CarSpawns"]
+position = Vector2(-212, 3)
+
+[node name="Marker2D6" type="Marker2D" parent="CarSpawns"]
+position = Vector2(-212, -27)
+
+[node name="Marker2D7" type="Marker2D" parent="CarSpawns"]
+position = Vector2(212, -52)
+
+[node name="Marker2D8" type="Marker2D" parent="CarSpawns"]
+position = Vector2(211, -97)
+
+[node name="Marker2D9" type="Marker2D" parent="CarSpawns"]
+position = Vector2(-209, -118)

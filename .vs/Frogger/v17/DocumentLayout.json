@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Emil\\Documents\\frogger\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3A19D444-7FF6-4F76-81FA-6DDA35264F11}|Frogger.csproj|c:\\users\\emil\\documents\\frogger\\scenes\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A19D444-7FF6-4F76-81FA-6DDA35264F11}|Frogger.csproj|solutionrelative:scenes\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3A19D444-7FF6-4F76-81FA-6DDA35264F11}|Frogger.csproj|c:\\users\\emil\\documents\\frogger\\scenes\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A19D444-7FF6-4F76-81FA-6DDA35264F11}|Frogger.csproj|solutionrelative:scenes\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A19D444-7FF6-4F76-81FA-6DDA35264F11}|Frogger.csproj|c:\\users\\emil\\documents\\frogger\\helpers\\fileloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A19D444-7FF6-4F76-81FA-6DDA35264F11}|Frogger.csproj|solutionrelative:helpers\\fileloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A19D444-7FF6-4F76-81FA-6DDA35264F11}|Frogger.csproj|c:\\users\\emil\\documents\\frogger\\scenes\\carscene\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A19D444-7FF6-4F76-81FA-6DDA35264F11}|Frogger.csproj|solutionrelative:scenes\\carscene\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A19D444-7FF6-4F76-81FA-6DDA35264F11}|Frogger.csproj|c:\\users\\emil\\documents\\frogger\\scenes\\playerscene\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A19D444-7FF6-4F76-81FA-6DDA35264F11}|Frogger.csproj|solutionrelative:scenes\\playerscene\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3A19D444-7FF6-4F76-81FA-6DDA35264F11}|Frogger.csproj|c:\\users\\emil\\documents\\frogger\\helpers\\inputmapnames.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -18,25 +30,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\Emil\\Documents\\frogger\\scenes\\Player\\Player.cs",
-              "RelativeDocumentMoniker": "scenes\\Player\\Player.cs",
-              "ToolTip": "C:\\Users\\Emil\\Documents\\frogger\\scenes\\Player\\Player.cs",
-              "RelativeToolTip": "scenes\\Player\\Player.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwCgAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T14:19:57.067Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "InputMapNames.cs",
               "DocumentMoniker": "C:\\Users\\Emil\\Documents\\frogger\\Helpers\\InputMapNames.cs",
               "RelativeDocumentMoniker": "Helpers\\InputMapNames.cs",
@@ -45,7 +43,61 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-08T20:31:09.446Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Game.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Documents\\frogger\\scenes\\Game.cs",
+              "RelativeDocumentMoniker": "scenes\\Game.cs",
+              "ToolTip": "C:\\Users\\Emil\\Documents\\frogger\\scenes\\Game.cs",
+              "RelativeToolTip": "scenes\\Game.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAB3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-09T09:09:31.829Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FileLoader.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Documents\\frogger\\Helpers\\FileLoader.cs",
+              "RelativeDocumentMoniker": "Helpers\\FileLoader.cs",
+              "ToolTip": "C:\\Users\\Emil\\Documents\\frogger\\Helpers\\FileLoader.cs",
+              "RelativeToolTip": "Helpers\\FileLoader.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAoAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T17:35:49.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Car.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Documents\\frogger\\scenes\\CarScene\\Car.cs",
+              "RelativeDocumentMoniker": "scenes\\CarScene\\Car.cs",
+              "ToolTip": "C:\\Users\\Emil\\Documents\\frogger\\scenes\\CarScene\\Car.cs",
+              "RelativeToolTip": "scenes\\CarScene\\Car.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T17:32:53.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\Emil\\Documents\\frogger\\scenes\\PlayerScene\\Player.cs",
+              "RelativeDocumentMoniker": "scenes\\PlayerScene\\Player.cs",
+              "ToolTip": "C:\\Users\\Emil\\Documents\\frogger\\scenes\\PlayerScene\\Player.cs",
+              "RelativeToolTip": "scenes\\PlayerScene\\Player.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T17:32:10.375Z",
+              "EditorCaption": ""
             }
           ]
         }
