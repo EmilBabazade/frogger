@@ -10,7 +10,7 @@ public partial class Player : CharacterBody2D
     private AnimatedSprite2D _animatedSprite;
 
     private Vector2 _direction = Vector2.Zero;
-
+    //hi
     public override void _PhysicsProcess(double delta)
     {
         Movement(delta);

@@ -279,7 +279,7 @@ position = Vector2(163, -278)
 texture = ExtResource("16_js0lu")
 
 [node name="Light4" type="Sprite2D" parent="scene/Objects/Sprites"]
-position = Vector2(120, -83)
+position = Vector2(114, -83)
 texture = ExtResource("6_e1j6l")
 
 [node name="PlayerSimple" type="Sprite2D" parent="scene/Objects/Sprites"]
