@@ -8,16 +8,14 @@ public partial class Player : CharacterBody2D
     private int _speed = 200;
     [Export]
     private AnimatedSprite2D _animatedSprite;
-
     private Vector2 _direction = Vector2.Zero;
-    //hi
+
     public override void _PhysicsProcess(double delta)
     {
         Movement(delta);
         Animation();
-        DoSomething();
-
         MoveAndSlide();
+
         base._Process(delta);
     }
 
@@ -44,10 +42,5 @@ public partial class Player : CharacterBody2D
             _animatedSprite.Play("horizontal");
             _animatedSprite.FlipH = _direction.X > 0;
         }
-    }
-
-    private static void DoSomething()
-    {
-        if (Input.IsActionJustPressed(InputMapNames.Confirm)) GD.Print("you pressed space");
     }
 }

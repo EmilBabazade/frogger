@@ -1,4 +1,6 @@
+using Frogger.Helpers;
 using Godot;
+using System;
 
 namespace Frogger.scenes.CarScene;
 public partial class Car : Area2D
@@ -13,12 +15,31 @@ public partial class Car : Area2D
     private float _speed = 100;
     private Vector2 _direction = Vector2.Left;
 
+    private static readonly Texture2D[] _carSprites = FileLoader.LoadSafe<Texture2D>(
+        "res://graphics/cars/green.png",
+        "res://graphics/cars/red.png",
+        "res://graphics/cars/yellow.png"
+    );
+    private static readonly Random _rand = new();
+
     public override void _Ready()
     {
         RegisterSignalHandlers();
         SetDirection();
+        SetSprite();
 
         base._Ready();
+    }
+    public override void _Process(double delta)
+    {
+        Position += _direction * _speed * (float)delta;
+
+        base._Process(delta);
+    }
+
+    private void SetSprite()
+    {
+        _sprite.Texture = _carSprites[_rand.Next(_carSprites.Length)];
     }
 
     private void SetDirection()
@@ -40,10 +61,4 @@ public partial class Car : Area2D
         QueueFree();
     }
 
-    public override void _Process(double delta)
-    {
-        Position += _direction * _speed * (float)delta;
-
-        base._Process(delta);
-    }
 }

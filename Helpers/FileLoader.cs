@@ -1,4 +1,5 @@
 using Godot;
+using System.Linq;
 
 namespace Frogger.Helpers;
 public static class FileLoader
@@ -19,4 +20,14 @@ public static class FileLoader
         }
         return file;
     }
+
+    /// <summary>
+    /// Load files using ResourceLoader.Load<T>(path), throws FileNotFoundException if any file doesnt exist at path
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="paths"></param>
+    /// <returns></returns>
+    /// <exception cref="System.IO.FileNotFoundException">throws FileNotFoundException if the file doesnt exist at path</exception>
+    public static T[] LoadSafe<T>(params string[] paths)
+        where T : class => [.. paths.Select(x => LoadSafe<T>(x))];
 }
