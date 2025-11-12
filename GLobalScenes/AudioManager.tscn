@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv0t1n0e7k0ls"]
+
+[ext_resource type="AudioStream" uid="uid://d05385du5fc0j" path="res://audio/S31-City on Speed.ogg" id="1_xxcej"]
+
+[node name="AudioManager" type="Node"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_xxcej")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true
