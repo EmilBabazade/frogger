@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dfq2iqhuccltx"]
+[gd_scene load_steps=32 format=3 uid="uid://dfq2iqhuccltx"]
 
 [ext_resource type="Script" uid="uid://7pgcmberepa8" path="res://scenes/Game.cs" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://doghmovcgeltw" path="res://graphics/map.png" id="1_uwrxv"]
@@ -35,14 +35,23 @@ size = Vector2(383, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05nbr"]
 size = Vector2(7, 12)
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("_carSpawnTimer", "_carSpawns", "_area2D", "_gameTimeLabel", "_gameTimeTimer")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pl11u"]
+size = Vector2(383, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhx41"]
+size = Vector2(379, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnb83"]
+size = Vector2(379, 35)
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("_carSpawnTimer", "_carSpawns", "_gameTimeLabel", "_gameTimeTimer", "_playArea")]
 script = ExtResource("1_lbhrr")
 _carSpawnTimer = NodePath("Timers/CarSpawnTimer")
 _carSpawns = NodePath("CarSpawns")
 _increaseGameTimeEverySeconds = 20
-_area2D = NodePath("")
 _gameTimeLabel = NodePath("CanvasLayer/GameTimeLabel")
 _gameTimeTimer = NodePath("Timers/GameTimeTimer")
+_playArea = NodePath("PlayArea")
 
 [node name="BG" type="Sprite2D" parent="."]
 texture = ExtResource("1_uwrxv")
@@ -431,3 +440,18 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("25_pl11u")
 theme_override_font_sizes/font_size = 40
 text = "0"
+
+[node name="PlayArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayArea"]
+position = Vector2(0.5, 128)
+shape = SubResource("RectangleShape2D_pl11u")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PlayArea"]
+position = Vector2(0.5, -24)
+shape = SubResource("RectangleShape2D_bhx41")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="PlayArea"]
+position = Vector2(0.5, -103.5)
+shape = SubResource("RectangleShape2D_qnb83")

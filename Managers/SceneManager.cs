@@ -16,9 +16,3 @@ public static class SceneManager
         sceneTree.CallDeferred(SceneTree.MethodName.ChangeSceneToPacked, _scenes[scene]);
     }
 }
-
-public enum SceneEnum
-{
-    Game,
-    Title
-}

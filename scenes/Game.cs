@@ -6,20 +6,32 @@ using Godot;
 namespace Frogger.scenes;
 public partial class Game : Node2D
 {
-    [Export] private Timer _carSpawnTimer;
+    [Export]
+    private Timer _carSpawnTimer;
     private static readonly PackedScene _carScene = FileLoader.LoadSafe<PackedScene>("res://scenes/CarScene/car.tscn");
-    [Export] private Node2D _carSpawns;
-    [Export] private int _increaseGameTimeEverySeconds = 50;
-    [Export] private float _decreaseCarSpawnTimeBy = 0.1f;
-    [Export] private float _carSpawnTimeMin = 0.1f;
+    [Export]
+    private Node2D _carSpawns;
+    [Export]
+    private int _increaseGameTimeEverySeconds = 50;
+    [Export]
+    private float _decreaseCarSpawnTimeBy = 0.1f;
+    [Export]
+    private float _carSpawnTimeMin = 0.1f;
 
-    [Export] private Label _gameTimeLabel;
-    [Export] private Timer _gameTimeTimer;
+    [Export]
+    private Label _gameTimeLabel;
+    [Export]
+    private Timer _gameTimeTimer;
     private int _gameTime = 0;
     private int _level = 0;
 
+    [Export]
+    private Area2D _playArea;
+
     public override void _Ready()
     {
+        _gameTimeTimer.Stop();
+
         ConnectSignals();
 
         base._Ready();
@@ -28,6 +40,8 @@ public partial class Game : Node2D
     {
         _carSpawnTimer.Timeout += HandleCarSpawnTimerTimeout;
         _gameTimeTimer.Timeout += HandleGameTimeIncrease;
+        _playArea.BodyEntered += HandlePlayAreaEntered;
+        _playArea.BodyExited += HandlePlayAreaExited;
     }
 
     public void HandleCarSpawnTimerTimeout()
@@ -57,5 +71,15 @@ public partial class Game : Node2D
             _carSpawnTimer.WaitTime -= _carSpawnTimer.WaitTime * _decreaseCarSpawnTimeBy;
             _level++;
         }
+    }
+
+    public void HandlePlayAreaEntered(Node2D body)
+    {
+        _gameTimeTimer.Start();
+    }
+
+    public void HandlePlayAreaExited(Node2D body)
+    {
+        _gameTimeTimer.Stop();
     }
 }
