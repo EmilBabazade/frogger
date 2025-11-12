@@ -37,6 +37,11 @@ public partial class Car : Area2D
         base._Process(delta);
     }
 
+    public void IncreaseSpeed(float by)
+    {
+        _speed += _speed * by;
+    }
+
     private void SetSprite()
     {
         _sprite.Texture = _carSprites[_rand.Next(_carSprites.Length)];

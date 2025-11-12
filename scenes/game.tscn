@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dfq2iqhuccltx"]
+[gd_scene load_steps=30 format=3 uid="uid://dfq2iqhuccltx"]
 
 [ext_resource type="Script" uid="uid://7pgcmberepa8" path="res://scenes/Game.cs" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://doghmovcgeltw" path="res://graphics/map.png" id="1_uwrxv"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://b3jchn0artiyt" path="res://graphics/objects/line.png" id="22_m4url"]
 [ext_resource type="Texture2D" uid="uid://cxutqp0hti8vw" path="res://graphics/objects/bench.png" id="23_8ool0"]
 [ext_resource type="Texture2D" uid="uid://oqgtp468wc6x" path="res://graphics/objects/sign.png" id="24_pr1ej"]
+[ext_resource type="FontFile" uid="uid://hqpa84d2dqvp" path="res://fonts/Better VCR 9.0.1.ttf" id="25_pl11u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
 size = Vector2(43, 642)
@@ -36,11 +37,14 @@ size = Vector2(383, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05nbr"]
 size = Vector2(7, 12)
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("_carSpawnTimer", "_carSpawns", "_area2D")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("_carSpawnTimer", "_carSpawns", "_area2D", "_gameTimeLabel", "_gameTimeTimer")]
 script = ExtResource("1_lbhrr")
 _carSpawnTimer = NodePath("Timers/CarSpawnTimer")
 _carSpawns = NodePath("CarSpawns")
+_increaseGameTimeEverySeconds = 20
 _area2D = NodePath("borders/Area2D")
+_gameTimeLabel = NodePath("CanvasLayer/GameTimeLabel")
+_gameTimeTimer = NodePath("Timers/GameTimeTimer")
 
 [node name="BG" type="Sprite2D" parent="."]
 texture = ExtResource("1_uwrxv")
@@ -100,6 +104,9 @@ shape = SubResource("RectangleShape2D_iywne")
 
 [node name="CarSpawnTimer" type="Timer" parent="Timers"]
 wait_time = 0.25
+autostart = true
+
+[node name="GameTimeTimer" type="Timer" parent="Timers"]
 autostart = true
 
 [node name="CarSpawns" type="Node2D" parent="."]
@@ -408,7 +415,7 @@ position = Vector2(-154.5, 228)
 shape = SubResource("RectangleShape2D_05nbr")
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="scene/Objects/StaticBody2D"]
-polygon = PackedVector2Array(49, -149, 48, -153, 36, -153, 37, -225, -34, -224, -33, -154, 35, -153, 37, -152, 35, -154, 35, -154, 35, -154, 43, -165, 23, -167, 40, -159, 38, -224, 28, -168)
+polygon = PackedVector2Array(39, -171, 37, -225, -34, -224, -34, -152, 26, -151, 48, -148, 48, -152, 40, -154)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="scene/Objects/StaticBody2D"]
 polygon = PackedVector2Array(-167, -149, -165, -196, -75, -197, -76, -178, -66, -176, -58, -179, -57, -175, -54, -172, -52, -170, -69, -168, -74, -167, -74, -155, -75, -149, -166, -149)
@@ -418,3 +425,19 @@ polygon = PackedVector2Array(141, -149, 89, -150, 89, -192, 127, -191, 128, -157
 
 [node name="Player" parent="scene" instance=ExtResource("2_yqjtg")]
 _speed = 5000
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameTimeLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.087
+anchor_right = 0.5
+anchor_bottom = 0.087
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("25_pl11u")
+theme_override_font_sizes/font_size = 40
+text = "0"
