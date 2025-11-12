@@ -1,6 +1,6 @@
 using Frogger.Helpers;
+using Frogger.Managers;
 using Frogger.scenes.CarScene;
-using Frogger.scenes.PlayerScene;
 using Godot;
 
 namespace Frogger.scenes;
@@ -12,8 +12,6 @@ public partial class Game : Node2D
     [Export] private int _increaseGameTimeEverySeconds = 50;
     [Export] private float _decreaseCarSpawnTimeBy = 0.1f;
     [Export] private float _carSpawnTimeMin = 0.1f;
-
-    [Export] private Area2D _area2D;
 
     [Export] private Label _gameTimeLabel;
     [Export] private Timer _gameTimeTimer;
@@ -29,7 +27,6 @@ public partial class Game : Node2D
     private void ConnectSignals()
     {
         _carSpawnTimer.Timeout += HandleCarSpawnTimerTimeout;
-        _area2D.BodyEntered += HandleArea2dBodyEntered;
         _gameTimeTimer.Timeout += HandleGameTimeIncrease;
     }
 
@@ -40,20 +37,14 @@ public partial class Game : Node2D
         var spawn = (Marker2D)_carSpawns.GetChild(randomIdx);
         car.Position = spawn.Position;
         car.IncreaseSpeed(_decreaseCarSpawnTimeBy * _level);
-        car.BodyEntered += body =>
-        {
-            if (body is Player)
-            {
-                GD.Print(body);
-                GD.Print("Car collision");
-            }
-        };
+        car.BodyEntered += GameOver;
         AddChild(car);
     }
 
-    public void HandleArea2dBodyEntered(Node2D _)
+    private void GameOver(Node2D _)
     {
-        //GD.Print("Player entered");
+        ScoreManager.Score = _gameTime;
+        SceneManager.GoToScene(GetTree(), SceneEnum.Title);
     }
 
     public void HandleGameTimeIncrease()

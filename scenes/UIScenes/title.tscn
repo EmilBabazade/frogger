@@ -1,18 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpxal7rcv5nar"]
+[gd_scene load_steps=5 format=3 uid="uid://bpxal7rcv5nar"]
 
+[ext_resource type="Script" uid="uid://cjqqbpgjq6nyq" path="res://scenes/UIScenes/Title.cs" id="1_8v533"]
 [ext_resource type="FontFile" uid="uid://dr201ov4c76pb" path="res://fonts/Crackman.otf" id="1_jwo1d"]
 [ext_resource type="Texture2D" uid="uid://bkgrir378horu" path="res://graphics/player/player_simple.png" id="2_a7g4h"]
 [ext_resource type="FontFile" uid="uid://hqpa84d2dqvp" path="res://fonts/Better VCR 9.0.1.ttf" id="3_6li7a"]
 
-[node name="Title" type="Control"]
+[node name="Title" type="Control" node_paths=PackedStringArray("_playButton", "_scoreLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8v533")
+_playButton = NodePath("PlayButton")
+_scoreLabel = NodePath("ScoreLabel")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BG" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.3882353, 0.23529412, 0.39607844, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="TitleLabe" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -48,7 +52,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_a7g4h")
 
-[node name="Label2" type="Label" parent="."]
+[node name="ScoreLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -63,3 +67,19 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_6li7a")
 theme_override_font_sizes/font_size = 30
 text = "HIGH SCORE: 999"
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.464
+anchor_top = 0.903
+anchor_right = 0.52
+anchor_bottom = 0.903
+offset_left = -94.5
+offset_top = -46.0
+offset_right = 94.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_6li7a")
+theme_override_font_sizes/font_size = 30
+text = "NEW GAME"

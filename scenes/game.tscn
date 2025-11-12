@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dfq2iqhuccltx"]
+[gd_scene load_steps=29 format=3 uid="uid://dfq2iqhuccltx"]
 
 [ext_resource type="Script" uid="uid://7pgcmberepa8" path="res://scenes/Game.cs" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://doghmovcgeltw" path="res://graphics/map.png" id="1_uwrxv"]
@@ -32,8 +32,6 @@ size = Vector2(43, 642)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
 size = Vector2(383, 19)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iywne"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05nbr"]
 size = Vector2(7, 12)
 
@@ -42,7 +40,7 @@ script = ExtResource("1_lbhrr")
 _carSpawnTimer = NodePath("Timers/CarSpawnTimer")
 _carSpawns = NodePath("CarSpawns")
 _increaseGameTimeEverySeconds = 20
-_area2D = NodePath("borders/Area2D")
+_area2D = NodePath("")
 _gameTimeLabel = NodePath("CanvasLayer/GameTimeLabel")
 _gameTimeTimer = NodePath("Timers/GameTimeTimer")
 
@@ -90,15 +88,6 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="borders/top"]
 position = Vector2(0, -331)
 shape = SubResource("RectangleShape2D_lbhrr")
-
-[node name="Area2D" type="Area2D" parent="borders"]
-collision_mask = 2
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/Area2D"]
-position = Vector2(0, -50)
-scale = Vector2(18.879997, 1)
-shape = SubResource("RectangleShape2D_iywne")
 
 [node name="Timers" type="Node" parent="."]
 
@@ -424,6 +413,7 @@ polygon = PackedVector2Array(-167, -149, -165, -196, -75, -197, -76, -178, -66, 
 polygon = PackedVector2Array(141, -149, 89, -150, 89, -192, 127, -191, 128, -157, 128, -153)
 
 [node name="Player" parent="scene" instance=ExtResource("2_yqjtg")]
+position = Vector2(28, 189)
 _speed = 5000
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
